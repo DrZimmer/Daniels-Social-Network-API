@@ -78,7 +78,7 @@ const userControllers = {
   },
 
   //Delete a friend
-  removeFriend({ params }, res) {
+  deleteFriend({ params }, res) {
     User.findOneAndUpdate({ _id: params.id }, {$pull: { friends: params.friendId }}, { new: true })
     .populate({
       path: 'friends',
